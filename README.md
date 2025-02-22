@@ -43,8 +43,8 @@ Bu proje, kullanıcıların günlük ihtiyaçlarına yönelik çeşitli araçlar
 ---
 
 ### 📌 Önizleme
-![Dashboard Preview](https://i.ibb.co/6YkzL3G/dashboard-preview.png)  
-*(Not: Görsel eklemek için [ImgBB](https://imgbb.com/) gibi servisler kullanabilirsiniz)*
+![image](https://github.com/user-attachments/assets/12afcc4d-a389-47df-a91d-3fa80c87f5fb)
+
 
 ---
 
