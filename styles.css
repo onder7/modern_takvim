@@ -1,0 +1,862 @@
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --background-color: transparent;
+    --text-color: #333;
+    --border-radius: 15px;
+    --box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+/* Spiral ana container */
+.spiral-notebook {
+    position: relative;
+   
+    
+    padding: 20px 20px 20px 50px; /* Sol tarafta spiral için ekstra padding */
+    border-radius: 3px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Spiral teller için ana element */
+.spiral-notebook::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    background-color: transparent;
+    /* Spiral tellerin oluşturulması */
+    background-image: 
+        /* Spiral halkaların iç kısmı */
+        radial-gradient(
+            circle at 15px 10px,
+            transparent 3px,
+            rgba(0, 0, 0, 0.2) 3px,
+            rgba(0, 0, 0, 0.2) 4px,
+            transparent 4px
+        ),
+        /* Spiral halkaların dış kısmı */
+        radial-gradient(
+            circle at 15px 10px,
+            transparent 6px,
+            rgba(0, 0, 0, 0.1) 6px,
+            rgba(0, 0, 0, 0.1) 7px,
+            transparent 7px
+        );
+    background-size: 30px 20px;
+    background-repeat: repeat-y;
+}
+
+/* Spiral halkaların gölgesi */
+.spiral-notebook::after {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(
+        to right,
+        rgba(255, 0, 0, 0.1),
+        transparent 100%
+    );
+}
+
+/* Kareli kağıt görünümü için arka plan */
+.notebook-content {
+    background-image: 
+        linear-gradient(#f01111 1px, transparent 1px),
+        linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+    background-size: 20px 20px;
+    /* min-height: 300px;
+    width: 100%; */
+    padding: 10px;
+}
+
+/* Spiral teller için hover efekti */
+.spiral-notebook:hover::before {
+    transform: scaleX(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+    .spiral-notebook {
+        padding-left: 40px;
+    }
+    
+    .spiral-notebook::before {
+        width: 25px;
+        background-size: 25px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .spiral-notebook {
+        padding-left: 35px;
+    }
+    
+    .spiral-notebook::before {
+        width: 20px;
+        background-size: 20px 20px;
+    }
+}
+/* Container */
+.news-section{
+    background-color:transparent;
+}
+.container {
+    font-size: smaller;
+    display: flex
+;
+    /* justify-content: space-between; */
+    /* align-items: stretch; */
+    /* width: 100%; */
+    /* max-width: 1200px; */
+    /* padding: 20px; */
+    /* background-color: #b94141; */
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    gap: 20px;
+    /* flex-wrap: wrap; */
+}
+
+
+
+button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.container, .side-box, .event-box {
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+.side-box h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.side-box p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.side-box button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.side-box button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Ana İçerik */
+.main-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Takvim Başlığı */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.calendar-header h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 600;
+}
+
+.calendar-header button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-header button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Takvim Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.calendar-grid .day {
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    border: 1px solid #bdc3c7;
+    font-size: 1rem;
+    color: #2c3e50;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-grid .day:hover {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+.calendar-header h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 600;
+}
+
+.calendar-header button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+.calendar-header button:hover {
+    background-color: #2980b9;
+}
+
+/* Takvim Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box; /* Padding'i genişliğe dahil et */
+}
+
+
+
+
+.calendar-grid .day:hover {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-grid .empty {
+    background-color: transparent;
+    border: none;
+    cursor: default;
+}
+
+/* Bugünü Vurgula */
+.today {
+    background-color: #e74c3c !important;
+    color: #fff !important;
+    font-weight: bold;
+    border: 2px solid #c0392b;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.6);
+    transform: scale(1.1); /* Bugünü biraz büyüt */
+}
+
+/* Olay Kutusu */
+.event-box {
+    width: 100%;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.event-box h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.event-box p {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.event-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.event-box ul li {
+    background: #ecf0f1;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.event-box ul li:hover {
+    background: #bdc3c7;
+    transform: translateX(10px);
+}
+/* Responsive Tasarım */
+@media (max-width: 1024px) {
+    .side-section {
+        width: 25%;
+    }
+    
+    .main-content {
+        min-width: 40%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .calendar-grid .day {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .calendar-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .calendar-header button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .event-box {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+        border-radius: 10px;
+    }
+    
+    .calendar-grid .day {
+        font-size: 0.8rem;
+    }
+}
+
+/* Tatil günleri için stil tanımlamaları */
+.holiday {
+    position: relative;
+    border: 2px solid #ff4444 !important;
+    background: linear-gradient(45deg, #fff5f5, #ffe6e6) !important;
+}
+
+.holiday:hover {
+    background: linear-gradient(45deg, #ffe6e6, #ffd6d6) !important;
+    transform: scale(1.05);
+}
+
+.holiday::after {
+    content: "🎉";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 10px;
+}
+
+.half-day {
+    background: linear-gradient(45deg, #fff5f5 50%, #ffe6e6 50%) !important;
+}
+
+.religious {
+    border-color: #4CAF50 !important;
+}
+
+.religious::after {
+    content: "🌙";
+}
+
+.national {
+    border-color: #ff4444 !important;
+}
+
+.national::after {
+    content: "🇹🇷";
+}
+
+.arife {
+    background: linear-gradient(45deg, #fff5f5 75%, #ffe6e6 25%) !important;
+}
+
+/* Tooltip geliştirmeleri */
+.holiday[title] {
+    position: relative;
+    cursor: pointer;
+}
+
+.holiday[title]:hover::before {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: rgb(116, 180, 104);
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+/* Hafta sonu stilleri */
+.weekend {
+    background-color: #f8e5e5 !important;
+    border: 1px solid #e8c6c6 !important;
+    color: #c43636 !important;
+}
+
+.weekend:hover {
+    background-color: #e8c6c6 !important;
+    transform: translateY(-5px);
+}
+
+/* Hafta sonu ve tatil kesişimi için stil */
+.weekend.holiday {
+    background: linear-gradient(45deg, #f8e5e5, #ffe6e6) !important;
+    border: 2px solid #ff4444 !important;
+}
+
+.weekend.holiday:hover {
+    background: linear-gradient(45deg, #e8c6c6, #ffd6d6) !important;
+}
+
+
+
+
+/* Yan Alanlar (Sol ve Sağ) */
+.side-section {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+/* Event Box Spiral Stili */
+.side-section .event-box {
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #f7f6f6, #e3e3e3);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-height: 500px;
+    overflow-y: auto;
+    border-left: 5px solid #3498db;
+    transform: rotate(-2deg);
+}
+
+.side-section .event-box h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 3px dashed #3498db;
+    padding-bottom: 10px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.side-section .event-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-section .event-box ul li {
+    background: radial-gradient(circle, #b9e2af, #d4f8c8);
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 15px;
+    border-left: 4px dotted #3498db;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    transform: rotate(1deg);
+}
+
+.side-section .event-box ul li:hover {
+    background: linear-gradient(135deg, #edf2f7, #dceefb);
+    transform: translateX(10px) rotate(-2deg);
+}
+
+/* Ana İçerik */
+.main-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 1024px) {
+    .side-section .event-box {
+        max-height: 1550px;
+    }
+}
+
+@media (max-width: 768px) {
+    .side-section .event-box {
+        max-height: 200px;
+    }
+}
+/* Döviz kurları için stiller */
+.exchange-rates {
+    padding: 10px 0;
+}
+
+.rates-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rate-card {
+    transition: all 0.3s ease;
+    border-left: 3px solid #3498db;
+}
+
+.rate-card:hover {
+    transform: translateX(5px);
+    background-color: #f8f9fa;
+}
+
+.rate-card .font-medium {
+    color: #2c3e50;
+}
+
+.rate-card .text-blue-600 {
+    font-weight: 500;
+}
+
+/* Hava Durumu Kutusu */
+.weather-card {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.weather-card h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.weather-card .weather-info {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.weather-card img {
+    width: 90px;
+    height: 90px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.weather-card p {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 6px 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: background 0.3s ease;
+}
+
+.weather-card p:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.weather-card strong {
+    color: #f1c40f;
+}
+
+/* Select Box Stil */
+#citySelect {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #2c3e50;
+    background: #ffffff;
+    color: #333;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+#citySelect:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 12px rgba(52, 152, 219, 0.6);
+}
+.exchange-rates-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #1a365d;
+}
+
+.exchange-rates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.exchange-rate-card {
+    background: #edf2f7;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exchange-rate-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.currency-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2b6cb0;
+}
+
+.rate-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2d3748;
+    margin: 8px 0;
+}
+
+.base-currency {
+    font-size: 14px;
+    color: #718096;
+}
+
+.currency-converter {
+    margin-top: 32px;
+}
+
+.converter-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+/* Takvim Stili */
+.side-box {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    background: transparent ;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Üst kısım - Ay/Gün */
+.side-box p:first-child {
+    background: #2980b9;
+    color: red;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Üst kısımda gün ve tarih ayrımı */
+.side-box p:first-child #fullDate {
+    display: block;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.side-box p:first-child #weekDay {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* Orta kısım */
+.side-box p {
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+.side-box p:hover {
+    background-color: #f8f9fa;
+}
+
+/* Yılın günü vurgusu */
+.side-box p:nth-child(2) {
+    font-size: 1.1em;
+}
+
+.side-box p:nth-child(2) #dayOfYear {
+    color: #e74c3c;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* Hafta vurgusu */
+.side-box p:nth-child(3) {
+    font-size: 1.1em;
+}
+
+.side-box p:nth-child(3) #weekNumber {
+    color: #e74c3c;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* Takvim efekti için süsleme */
+.side-box::before {
+    content: ''; 
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 20px;
+    background: #1fb98236;
+    border-radius: 0 0 20px 20px;
+    z-index: 1;
+}
+
+/* Takvim delikleri efekti */
+.side-box::after {
+    content: '• • •';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    color:transparent;
+    font-size: 12px;
+    letter-spacing: 3px;
+    z-index: 2;
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+    .side-box p:first-child {
+        font-size: 1em;
+    }
+    
+    .side-box p:first-child #fullDate {
+        font-size: 1.2em;
+    }
+}

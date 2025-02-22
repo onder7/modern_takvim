@@ -1,0 +1,1214 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9fafb;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+.container {
+    width: 95%;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 20px auto;
+}
+.box-euronews {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3sease, box-shadow 0.3sease;
+    overflow: hidden;
+    position: relative;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    bottom: 10px;
+}
+
+/* Genel kutu stilleri */
+.box {
+background: #ffffff;
+border-radius: 12px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+padding: 20px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+overflow: hidden;
+position: relative;
+height: 400px; /* Sabit yükseklik */
+display: flex;
+flex-direction: column;
+}
+/* Box içerik alanı için scroll */
+.box > div,
+.box > ul {
+overflow-y: auto;
+flex-grow: 1;
+scrollbar-width: thin;
+scrollbar-color: #cbd5e0 #f8fafc;
+}
+
+/* Webkit tabanlı browserlar için scroll stil */
+.box > div::-webkit-scrollbar,
+.box > ul::-webkit-scrollbar {
+width: 6px;
+}
+
+.box > div::-webkit-scrollbar-track,
+.box > ul::-webkit-scrollbar-track {
+background: #f8fafc;
+border-radius: 3px;
+}
+
+.box > div::-webkit-scrollbar-thumb,
+.box > ul::-webkit-scrollbar-thumb {
+background-color: #cbd5e0;
+border-radius: 3px;
+}
+
+/* Box başlıkları için sabit pozisyon */
+.box h3 {
+position: sticky;
+top: 0;
+background: inherit;
+padding-bottom: 15px;
+margin-bottom: 15px;
+z-index: 1;
+}
+
+/* Takvim kutusu için özel stil */
+.box-calendar {
+height: auto !important; /* Takvim için height sınırı kaldırıldı */
+}
+
+/* Box içeriklerinin padding ayarı */
+.box ul li {
+padding: 10px 15px;
+}
+
+/* Hover efekti düzeltmesi */
+.box:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Box içindeki listelerin margin düzeltmesi */
+.box ul {
+margin: 0;
+padding: 0 5px;
+}
+
+/* Holiday box için özel scroll ayarı */
+#holidaysList {
+overflow-y: auto;
+padding-right: 5px;
+}
+
+/* Events box için özel stil */
+.box-events ul {
+margin-top: 5px;
+}  
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+.box h3 {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.box h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background: #4a5568;
+}
+.box ul {
+    list-style: none;
+}
+.box ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+}
+.box ul li:last-child {
+    border-bottom: none;
+}
+.box ul li i {
+    margin-right: 10px;
+    color: #4a5568;
+}
+
+/* Takvim kutusu */
+.box-calendar {
+    grid-column: span 2;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box-calendar h3::after {
+    background: #6a11cb;
+}
+
+/* Hava Durumu kutusu */
+.box-weather {
+    background: #e3f2fd;
+}
+.box-weather h3::after {
+    background: #2196f3;
+}
+
+/* Döviz Kuru kutusu */
+.box-currency {
+    background: #e8f5e9;
+    display: flex;
+    flex-direction: column;
+}
+.box-currency h3::after {
+    background: #4caf50;
+}
+
+/* Spor kutusu */
+.box-sports {
+    background: #fff3e0;
+}
+.box-sports h3::after {
+    background: #ff9800;
+}
+
+/* Haberler kutusu */
+.box-news {
+    background: #fce4ec;
+    height: 800px;
+}
+.box-news h3::after {
+    background: #e91e63;
+}
+
+/* Etkinlikler kutusu */
+.box-events {
+    background: #f3e5f5;
+    height: 800px;
+}
+.box-events h3::after {
+    background: #9c27b0;
+}
+
+/* Tatil Günleri kutusu */
+.box-holidays {
+    background: #e0f7fa;
+}
+.box-holidays h3::after {
+    background: #00bcd4;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    background: #1a202c;
+    color: #cbd5e0;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* Mobil uyumlu düzenlemeler */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .box-calendar {
+        grid-column: span 1;
+        height: auto;
+    }
+    .box-calendar .calendar {
+        height: 300px;
+    }
+    .box h3 {
+        font-size: 1.1rem;
+    }
+    .box ul li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tatil günleri için özel stiller */
+.fc-day.holiday {
+background-color: #fff3e3 !important;
+position: relative;
+}
+
+.fc-day.half-day {
+background: linear-gradient(135deg, #fff3e3 50%, #ffffff 50%) !important;
+}
+
+.fc-day.religious {
+border-left: 3px solid #9c27b0 !important;
+}
+
+.fc-day.national {
+border-left: 3px solid #2196f3 !important;
+}
+
+.fc-day.arife {
+border-top: 2px dashed #ff9800 !important;
+}
+
+/* Tatil tooltip stilleri */
+.holiday-tooltip {
+position: absolute;
+background: white;
+border: 1px solid #ddd;
+padding: 5px;
+border-radius: 4px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+z-index: 1000;
+font-size: 0.8em;
+display: none;
+}
+
+.fc-day.holiday:hover .holiday-tooltip {
+display: block;
+}
+
+/* Box-holidays için özel stiller */
+.box-holidays .holiday-item {
+padding: 10px;
+margin-bottom: 8px;
+border-radius: 6px;
+background: #f8f9fa;
+}
+
+.box-holidays .holiday-item.religious {
+border-left: 3px solid #9c27b0;
+}
+
+.box-holidays .holiday-item.national {
+border-left: 3px solid #2196f3;
+}
+
+.box-holidays .holiday-item .holiday-date {
+font-size: 0.85em;
+color: #666;
+}
+
+.box-holidays .holiday-item .holiday-info {
+font-size: 0.8em;
+color: #888;
+margin-top: 3px;
+}
+
+/* Yıl seçici için stil */
+.year-selector {
+padding: 6px 12px;
+border: 1px solid #ddd;
+border-radius: 4px;
+margin: 0 10px;
+font-family: 'Poppins', sans-serif;
+background: white;
+}
+/* style.css'e eklenecek stiller */
+
+.weather-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.location-btn {
+    padding: 8px 15px;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.location-btn i {
+    font-size: 14px;
+}
+
+.location-btn:hover {
+    background: #1976d2;
+}
+
+.location-btn:disabled {
+    background: #90caf9;
+    cursor: wait;
+}
+
+.city-select {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #333;
+    background-color: white;
+    cursor: pointer;
+}
+
+.city-select:focus {
+    border-color: #2196f3;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.weather-content {
+    padding: 15px;
+}
+
+.weather-loading {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+.weather-loading i {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2196f3;
+}
+
+.box-weather {
+    background: #e3f2fd;
+}
+.current-rates {
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.rate-item {
+    display: flex
+;
+    align-items: center;
+    /* padding: 8px; */
+    margin-bottom: 8px;
+    /* background: rgb(0 153 238 / 21%); */
+    border-radius: 6px;
+}
+
+.rate-item i {
+    margin-right: 10px;
+    color: #4caf50;
+    width: 20px;
+}
+
+.rate-label {
+    font-weight: 100;
+    margin-right: 10px;
+}
+
+.rate-value {
+    margin-left: auto;
+    font-family: monospace;
+}
+
+.currency-converter {
+    display: flex
+;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background: #e8f5ea;
+    border-radius: 8px;
+    /* flex: 1; */
+    min-height: 0;
+}
+
+.converter-input {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+
+.converter-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9em;
+    min-width: 0;
+}
+
+.converter-input select {
+    width: 70px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+}
+.swap-btn {
+    align-self: center;
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: #4caf50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swap-btn:hover {
+    background: #45a049;
+}
+.weather-select {
+    margin-bottom: 15px;
+}
+
+.city-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #4a5568;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.city-select:hover {
+    border-color: #2196f3;
+}
+
+.city-select:focus {
+    border-color: #2196f3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.weather-content {
+    min-height: 200px;
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.weather-icon {
+    margin-right: 15px;
+}
+
+.weather-icon img {
+    width: 64px;
+    height: 64px;
+}
+
+.weather-temp {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-temp .temp {
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.weather-temp .condition {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.weather-detail {
+    display: flex;
+    align-items: center;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.weather-detail i {
+    margin-right: 8px;
+    color: #2196f3;
+    width: 20px;
+    text-align: center;
+}
+
+.weather-update {
+    font-size: 0.8em;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.weather-loading,
+.weather-error {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-loading i,
+.weather-error i {
+    font-size: 2em;
+    color: #2196f3;
+}
+
+.weather-error {
+    color: #e74c3c;
+}
+
+.weather-error i {
+    color: #e74c3c;
+}
+        /* Mevcut stiller */
+        
+        /* Konum butonu stilleri */
+        .weather-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .location-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: none;
+            background: #2196f3;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .location-btn:hover {
+            background: #1976d2;
+        }
+
+        .location-btn:disabled {
+            background: #90caf9;
+            cursor: wait;
+        }
+
+        .location-btn i {
+            font-size: 0.9rem;
+        }
+
+        .city-select {
+            flex: 1;
+        }
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+
+        .news-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .news-item i {
+            color: #e91e63;
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        .news-content {
+            flex: 1;
+        }
+
+        .news-title {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 3px;
+            line-height: 1.4;
+        }
+
+        .news-title:hover {
+            color: #e91e63;
+        }
+
+        .news-category {
+            font-size: 0.8em;
+            color: #666;
+            background: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }        
+        /* Haberler kutusu */       
+        /* Puan durumu tablosu için stiller */
+.standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.standings-table th {
+    background: #f8f9fa;
+    padding: 8px;
+    text-align: left;
+    font-weight: 500;
+    color: #666;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+.standings-table td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.team-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.team-position {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.position-cl {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.position-el {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.position-rel {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.team-name {
+    flex: 1;
+}
+
+.stats-cell {
+    text-align: center;
+    font-family: monospace;
+}
+
+.points-cell {
+    font-weight: 500;
+    color: #1a237e;
+}
+    
+        
+.news-list {
+    max-height: 800px;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 #f8fafc;
+}
+
+.news-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.news-item:hover {
+    background-color: #f8f9fa;
+}
+
+.news-title {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.news-title:hover {
+    color: #0056b3;
+}
+
+.news-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.news-category {
+    font-weight: 500;
+}
+
+.news-date {
+    color: #666;
+}
+
+/* Kaydırma çubuğu stilleri */
+.news-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.news-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.news-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.news-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/* Takvim container stilleri */
+.calendar-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+/* Tatil günü stilleri */
+.fc-day.holiday {
+    background-color: #a7172d !important;
+}
+
+.fc-day.half-day {
+    background: linear-gradient(135deg, #772d38 50%, #914b4b 50%) !important;
+}
+
+.fc-day.arife {
+    border: 2px dashed #f44336 !important;
+}
+
+.fc-day.religious {
+    background-color: #da9526 !important;
+}
+
+.fc-day.national {
+    background-color: #0bfd1f !important;
+}
+
+/* Özel gün stilleri */
+.fc-day.special-day {
+    background-color: #177ad1 !important;
+}
+
+.fc-day.special-week {
+    border-left: 3px solid #4caf50 !important;
+}
+
+.fc-day.international {
+    background-color: #15b323 !important;
+}
+
+.fc-day.social {
+    background-color: #bb1ed3 !important;
+}
+
+.fc-day.cultural {
+    background-color: #020c11 !important;
+}
+
+/* Dini gün stilleri */
+.fc-day.religious-day {
+    background-color: #128acf !important;
+}
+
+.fc-day.kandil {
+    border: 2px solid #ffa000 !important;
+}
+
+/* Tooltip stilleri */
+.event-tooltip {
+    position: absolute;
+    display: none;
+    background: rgb(179, 66, 66);
+    border: 1px solid #d63535;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    max-width: 250px;
+}
+
+.fc-day:hover .event-tooltip {
+    display: block;
+}
+
+.tooltip-section {
+    padding: 8px;
+    border-bottom: 1px solid #b12929;
+}
+
+.tooltip-section:last-child {
+    border-bottom: none;
+}
+
+.tooltip-section strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.tooltip-detail {
+    font-size: 0.9em;
+    color: #666;
+    margin: 2px 0;
+}
+
+.tooltip-info {
+    font-size: 0.85em;
+    color: #777;
+    font-style: italic;
+}
+
+/* Liste görünümü stilleri */
+.event-item {
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 6px;
+    border-left: 4px solid;
+    background: rgb(206, 69, 69);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.event-item:hover {
+    transform: translateX(5px);
+}
+
+.event-item.holiday {
+    border-left-color: #f44336;
+}
+
+.event-item.special {
+    border-left-color: #2196f3;
+}
+
+.event-item.annual {
+    border-left-color: #4caf50;
+}
+
+.event-item.religious {
+    border-left-color: #ff9800;
+}
+
+.event-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.event-date {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 3px;
+}
+
+.event-info {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Yıl seçici stilleri */
+.year-selector {
+    padding: 8px 12px;
+    border: 1px solid #9b3434;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    background: rgb(223, 23, 23);
+    cursor: pointer;
+}
+
+.year-selector:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+/* Takvim Stilleri */
+.fc-event {
+    padding: 2px 4px;
+    margin: 1px 0;
+    border-radius: 3px;
+}
+
+/* Resmi Tatiller */
+.fc-event.holiday.national {
+    background-color: #ef5350 !important;
+    border-color: #d32f2f !important;
+    color: white !important;
+}
+
+.fc-event.holiday.religious {
+    background-color: #7cb342 !important;
+    border-color: #558b2f !important;
+    color: white !important;
+}
+
+/* Özel Günler */
+.fc-event.special-day {
+    border-left: 3px solid !important;
+}
+
+.fc-event.special-day.social {
+    background-color: #e1bee7 !important;
+    border-left-color: #8e24aa !important;
+    color: #000 !important;
+}
+
+.fc-event.special-day.international {
+    background-color: #bbdefb !important;
+    border-left-color: #1976d2 !important;
+    color: #000 !important;
+}
+
+.fc-event.special-day.professional {
+    background-color: #c8e6c9 !important;
+    border-left-color: #388e3c !important;
+    color: #000 !important;
+}
+
+.fc-event.special-day.cultural {
+    background-color: #ffecb3 !important;
+    border-left-color: #ffa000 !important;
+    color: #000 !important;
+}
+
+.fc-event.special-day.health {
+    background-color: #f8bbd0 !important;
+    border-left-color: #c2185b !important;
+    color: #000 !important;
+}
+
+/* Özel Haftalar */
+.fc-event.special-week {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    border: none !important;
+}
+
+/* Dini Günler */
+.fc-event.religious-day {
+    background-color: #fff8e1 !important;
+    border-left: 3px solid #ffa000 !important;
+    color: #000 !important;
+}
+
+.fc-event.kandil {
+    background-color: #fff8e1 !important;
+    border-left: 3px solid #ff6f00 !important;
+    color: #000 !important;
+}
+
+.fc-event.religious-period {
+    background-color: rgba(255, 248, 225, 0.3) !important;
+    border: none !important;
+}
+
+/* Tooltip */
+.event-tooltip {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    max-width: 250px;
+}
+
+.fc-event:hover .event-tooltip {
+    display: block;
+}
+
+.tooltip-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.tooltip-duration {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.tooltip-info {
+    font-size: 0.9em;
+    color: #555;
+}
+.box-akaryakit {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fuel-prices {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.fuel-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.fuel-item:hover {
+    transform: translateX(5px);
+    background: #f3f4f5;
+}
+
+.fuel-item i {
+    font-size: 24px;
+    color: #f57c00;
+    width: 40px;
+    text-align: center;
+}
+
+.fuel-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.fuel-type {
+    font-weight: 500;
+    color: #333;
+}
+
+.fuel-price {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #f57c00;
+}
+
+.fuel-price.no-data {
+    color: #999;
+    font-style: italic;
+    font-size: 1em;
+}
+
+.fuel-update {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.fuel-location, .fuel-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.akaryakit-error {
+    text-align: center;
+    padding: 20px;
+    color: #dc3545;
+}
+
+.retry-btn {
+    background: #f57c00;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.retry-btn:hover {
+    background: #ef6c00;
+}
+
+.fuel-update i {
+    color: #666;
+}
